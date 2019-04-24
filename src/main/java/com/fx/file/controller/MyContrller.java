@@ -36,7 +36,7 @@ public class MyContrller {
     }
 
 
-    @GetMapping("/**/{suffix:^(?:(?!.+(?:.jpg|.JPG|.gif|.GIF|.mp4)$).)*$}")
+    @GetMapping("/**/{suffix:^(?:(?!.+(?:.jpg|.JPG|.gif|.GIF|.mp4|.txt)$).)*$}")
     public ModelAndView intoFolder(HttpServletRequest request) throws UnsupportedEncodingException {
         //获取当前地址
         String url= request.getRequestURI();
