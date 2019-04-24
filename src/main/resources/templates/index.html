@@ -1,0 +1,14 @@
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Index of /</title>
+</head>
+<body bgcolor="white">
+<h1>Index of /</h1>
+<hr>
+<pre th:each="file : ${list}">
+            <a th:href="@{${file.getFilePath()}}" th:text="${file.getFileName()}" >BoMuChuanShuo/</a>                                  -
+
+</pre>
+<hr>
+</body>
+</html>
