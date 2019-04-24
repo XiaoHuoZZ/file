@@ -41,7 +41,7 @@ public class MyContrller {
         //获取当前地址
         String url= request.getRequestURI();
         //转换
-        url=java.net.URLDecoder.decode(url, "UTF-8");
+        url=java.net.URLDecoder.decode(new String(url.getBytes("iso-8859-1"),"utf-8"), "UTF-8");
 
         String path=basic_path+url;
         File file=new File(path);
@@ -51,8 +51,6 @@ public class MyContrller {
         {
             for (File f : files) {
                 MyFile myFile=new MyFile(basic_path,f.getName(),f.getAbsolutePath());
-                myFile.setFileName(f.getName());
-                myFile.setFilePath(f.getAbsolutePath());
                 fileList.add(myFile);
             }
         }
