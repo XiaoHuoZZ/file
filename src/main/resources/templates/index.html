@@ -6,7 +6,7 @@
 <h1>Index of /</h1>
 <hr>
 <pre th:each="file : ${list}">
-            <a th:href="@{${file.getFilePath()}}" th:text="${file.getFileName()}" >BoMuChuanShuo/</a>                                  -
+            <a th:href="@{${file.getUrlPath()}}" th:text="${file.getFileName()}" >BoMuChuanShuo/</a>                                  -
 
 </pre>
 <hr>

@@ -3,7 +3,7 @@ server:
   port: 8081
 
 
-localPath: E:\迅雷下载
+localPath: E:\
 
 name: root
 pwd: 123

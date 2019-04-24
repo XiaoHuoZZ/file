@@ -19,8 +19,11 @@ public class MyContrller {
     @Value("${localPath}")
     private String basic_path;
 
+
     @GetMapping("/")
-    public ModelAndView index() throws UnsupportedEncodingException {
+    public ModelAndView index(HttpServletRequest request) throws UnsupportedEncodingException {
+
+        String basic_url=request.getRequestURL().toString().replace("http://","").split("/")[0];
 
         File file=new File(basic_path);
         File[] files = file.listFiles();
@@ -28,7 +31,7 @@ public class MyContrller {
         if(files!=null)
         {
             for (File f : files) {
-                MyFile myFile=new MyFile(basic_path,f.getName(),f.getAbsolutePath());
+                MyFile myFile=new MyFile(basic_path,basic_url,f.getName(),f.getAbsolutePath());
                 fileList.add(myFile);
             }
         }
@@ -38,19 +41,20 @@ public class MyContrller {
 
     @GetMapping("/**/{suffix:^(?:(?!.+(?:.jpg|.JPG|.gif|.GIF|.mp4|.txt)$).)*$}")
     public ModelAndView intoFolder(HttpServletRequest request) throws UnsupportedEncodingException {
-        //获取当前地址
+        //获取当前相对url地址
         String url= request.getRequestURI();
         //转换
         url=java.net.URLDecoder.decode(new String(url.getBytes("iso-8859-1"),"utf-8"), "UTF-8");
-
+        //组合出文件绝对路径
         String path=basic_path+url;
+        String basic_url=request.getRequestURL().toString().replace("http://","").split("/")[0];
         File file=new File(path);
         File[] files = file.listFiles();
         List<MyFile> fileList = new ArrayList<>();
         if(files!=null)
         {
             for (File f : files) {
-                MyFile myFile=new MyFile(basic_path,f.getName(),f.getAbsolutePath());
+                MyFile myFile=new MyFile(basic_path,basic_url,f.getName(),f.getAbsolutePath());
                 fileList.add(myFile);
             }
         }
