@@ -1,14 +1,17 @@
 
+#端口号
 server:
   port: 8081
 
-
+#静态资源地址
 localPath: E:\
 
+#账号密码
 name: root
 pwd: 123
 
 
+#<-------------以下不用作配置----------->
 spring:
   mvc:
     static-path-pattern: /**
