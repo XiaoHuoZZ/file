@@ -25,7 +25,7 @@ public class MyContrller {
         File file=new File(basic_path);
         File[] files = file.listFiles();
         List<MyFile> fileList = new ArrayList<>();
-        if(file!=null)
+        if(files!=null)
         {
             for (File f : files) {
                 MyFile myFile=new MyFile(basic_path,f.getName(),f.getAbsolutePath());
@@ -47,7 +47,7 @@ public class MyContrller {
         File file=new File(path);
         File[] files = file.listFiles();
         List<MyFile> fileList = new ArrayList<>();
-        if(file!=null)
+        if(files!=null)
         {
             for (File f : files) {
                 MyFile myFile=new MyFile(basic_path,f.getName(),f.getAbsolutePath());

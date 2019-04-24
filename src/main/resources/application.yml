@@ -1,0 +1,28 @@
+
+server:
+  port: 8081
+
+
+localPath: E:\迅雷下载
+
+name: root
+pwd: 123
+
+
+spring:
+  mvc:
+    static-path-pattern: /**
+  resources:
+    static-locations:
+      - file:${localPath}
+      - classpath:/META-INF/resources/
+      - classpath:/resources/
+      - classpath:/static/
+      - classpath:/public/
+  http:
+    encoding:
+      force: true
+      charset: UTF-8
+      enabled: true
+
+
