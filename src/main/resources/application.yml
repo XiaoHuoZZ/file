@@ -1,7 +1,7 @@
 
 #端口号
 server:
-  port: 8080
+  port: 8081
 
 #静态资源地址
 localPath: E:\
@@ -14,7 +14,7 @@ pwd: 123
 #<-------------以下不用作配置----------->
 spring:
   mvc:
-    static-path-pattern: /**
+    static-path-pattern: /static/**
   resources:
     static-locations:
       - file:${localPath}
@@ -22,6 +22,8 @@ spring:
       - classpath:/resources/
       - classpath:/static/
       - classpath:/public/
+
+staticAutorize: true
 
 
 

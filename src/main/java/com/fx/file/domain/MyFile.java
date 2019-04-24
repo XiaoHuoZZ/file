@@ -1,5 +1,6 @@
 package com.fx.file.domain;
 
+import com.fx.file.util.Util;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
 
@@ -19,7 +20,7 @@ public class MyFile {
         //得出文件相对路径
         String temp= filePath.replace(basic_path,"");
         //转换成url格式
-        this.urlPath=urlEncode(temp);
+        this.urlPath=Util.urlEncode(temp);
     }
 
     public String getFileName() {
@@ -40,22 +41,7 @@ public class MyFile {
         this.urlPath=java.net.URLEncoder.encode(temp,"utf-8");
     }
 
-    //文件路径转url编码
-    private String urlEncode(String path) throws UnsupportedEncodingException {
-        String temp=path.replace(File.separator,"/");
-        String names[]=temp.split("/");
-        StringBuffer buffer=new StringBuffer();
-        for(int i=0;i<names.length;i++)
-        {
-            //replace 掉+，因为空格会翻译成+，不符合需求
-            String s=java.net.URLEncoder.encode(names[i],"utf-8").replace("+","%20");
-            if(i!=names.length-1)
-                buffer.append(s+"/");
-            else
-                buffer.append(s);
-        }
-        return buffer.toString();
-    }
+
 
 
 
