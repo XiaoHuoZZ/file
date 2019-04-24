@@ -17,7 +17,7 @@ public class MyFile {
         this.basic_url=basic_url;
         this.fileName = fileName;
         //得出文件相对路径
-        String temp= filePath.replace(basic_path+ File.separator,"");
+        String temp= filePath.replace(basic_path,"");
         //转换成url格式
         this.urlPath=urlEncode(temp);
     }

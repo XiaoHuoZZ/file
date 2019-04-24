@@ -7,7 +7,7 @@
 server:
   port: 8081
 
-#静态资源地址  windows下用反斜杠"\"，linux下用"/"
+#静态资源地址  windows下用反斜杠"\"，linux下用"/",注意结尾必有分隔符
 localPath: E:\
 
 #账号密码
