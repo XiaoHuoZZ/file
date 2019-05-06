@@ -1,14 +1,21 @@
 
 #端口号
 server:
-  port: 8081
+  port: 8082
 
 #静态资源地址
 localPath: E:\
 
+#是否开启登录验证
+authorize: false
 #账号密码
 name: root
 pwd: 123
+
+#是否开启ip拦截
+ipInterceptor: true
+#ip白名单，用逗号分隔
+ipList: 127.0.0.1
 
 
 #<-------------以下不用作配置----------->
@@ -23,7 +30,7 @@ spring:
       - classpath:/static/
       - classpath:/public/
 
-staticAutorize: true
+staticAuthorize: false
 
 
 

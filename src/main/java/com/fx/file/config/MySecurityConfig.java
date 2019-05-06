@@ -15,19 +15,22 @@ public class MySecurityConfig extends WebSecurityConfigurerAdapter {
     private String name;
     @Value("${pwd}")
     private String password;
-    @Value("${staticAutorize}")
-    private boolean staticAutorize;
+    @Value("${staticAuthorize}")
+    private boolean staticAuthorize;
+    @Value("${authorize}")
+    private boolean authorize;
 
     @Override
     protected void configure(HttpSecurity http) throws Exception {
         //super.configure(http);
-        // 定制请求授权的规则
-        http.authorizeRequests()
-                .antMatchers("/**").hasRole("admin");
-
-        http.csrf().disable();
-        // 开启自动配置的登录功能,
-        http.formLogin();
+        if(authorize)
+        {
+            // 定制请求授权的规则
+            http.authorizeRequests()
+                    .antMatchers("/**").hasRole("admin");
+            // 开启自动配置的登录功能,
+            http.formLogin();
+        }
 
     }
 
@@ -42,7 +45,7 @@ public class MySecurityConfig extends WebSecurityConfigurerAdapter {
     @Override
     public void configure(WebSecurity web) throws Exception {
         //super.configure(web);
-        if(!staticAutorize)
+        if(!staticAuthorize)
         web.ignoring().antMatchers("/static/**");
     }
 }
